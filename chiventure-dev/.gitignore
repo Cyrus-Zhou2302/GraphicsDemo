@@ -1,0 +1,25 @@
+*.o
+*.d
+*~
+*.a
+*.so
+/chiventure
+*.swp
+*.vscode
+*.ipch
+ui_debug.txt
+*.dat
+*.DS_Store
+
+# CMake files
+build/
+*.cmake
+*.make
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+install_manifest.txt
+compile_commands.json
+_deps
