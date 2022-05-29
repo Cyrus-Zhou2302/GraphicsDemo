@@ -91,11 +91,11 @@ void runNPCGraphics(npc_graphics_t* npc_graphics) {
 
         EndDrawing();
         //----------------------------------------------------------------------------------
+        UnloadTexture(texture);
     }
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
-    UnloadTexture(texture);
 
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
