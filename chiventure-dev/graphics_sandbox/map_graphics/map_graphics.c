@@ -33,7 +33,6 @@ int free_map_graphics(map_graphics_t *map_graphics)
 }
 
 
-
 /* See map_graphics.h for documentation */
 int draw_map_graphics(map_graphics_t* info)
 {
