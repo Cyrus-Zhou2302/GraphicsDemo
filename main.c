@@ -11,6 +11,12 @@
 #include <unistd.h>
 
 
+struct input_box_args {
+    input_box_graphics_t* grafix;
+    char* buffa;
+};
+    
+
 NUM_THREADS = 7
 
 void updateGraphics(char* cmd) {
@@ -36,11 +42,26 @@ int main()
 
     input_box_graphics_t* input_box_graphics = newInputboxGraphics();
 
+    struct input_box_args* input_bourx = (struct input_box_args *)malloc(sizeof(struct input_box_args));
+    input_bourx->buffa = buffer;
+    input_bourx->grafix = input_box_graphics;
 
     pthread_t questpt, questpt, mappt,npcpt, scenept, input_boxpt, updatept;
 
-    pthread_create(&graphicspt,NULL,runTaskTreeGraphics,)
-    
+    pthread_create((&graphicspt),NULL,runTaskTreeGraphics,);
+    pthread_create((&questpt),NULL,runTaskTreeGraphics,quest_graphics);
+    pthread_create((&mappt),NULL,draw_map_graphics,map_graphics);
+    pthread_create((&npcpt),NULL, runNPCGraphics,npc_graphics);
+    pthread_create((&scenept),NULL, draw_scene_graphics,scene_graphics);
+    pthread_create((&input_boxpt),NULL, runTaskTreeGraphics,input_bourx);
+    pthread_create((&updatept),NULL, runTaskTreeGraphics,);
+
+    freeInputboxGraphics(input_box_graphics);
+    free_scene_graphics(scene_graphics);
+    FreeNPCGraphics(npc_graphics);
+    free_quest_graphics(quest_graphics);
+    free(input_bourx);
+    free_map_graphics(map_graphics);
     return 0;
 
 }
