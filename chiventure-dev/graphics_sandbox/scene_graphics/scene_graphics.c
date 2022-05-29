@@ -37,19 +37,18 @@ int draw_scene_graphics(scene_graphics_t* scene_graphics)
     InitWindow(screenWidth, screenHeight, "NSFW SCENE!!!");
 
 
-    Texture2D scene = LoadTexture(scene_graphics->ImagePath);
-
-    float ulxcoord = scene_graphics->PlayerPosition.x - (scene_graphics->SceneSize.x/2);
-    float ulycoord = scene_graphics->PlayerPosition.y - (scene_graphics->SceneSize.y/2);
-    Rectangle showScene = {ulxcoord, ulycoord, scene_graphics->SceneSize.x,scene_graphics->SceneSize.y};
-    Vector2 drawPosition = {(screenWidth - scene_graphics->SceneSize.x)/2, (screenHeight - scene_graphics->SceneSize.y)/2};
-
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
+           Texture2D scene = LoadTexture(scene_graphics->ImagePath);
+
+        float ulxcoord = scene_graphics->PlayerPosition.x - (scene_graphics->SceneSize.x/2);
+        float ulycoord = scene_graphics->PlayerPosition.y - (scene_graphics->SceneSize.y/2);
+        Rectangle showScene = {ulxcoord, ulycoord, scene_graphics->SceneSize.x,scene_graphics->SceneSize.y};
+        Vector2 drawPosition = {(screenWidth - scene_graphics->SceneSize.x)/2, (screenHeight - scene_graphics->SceneSize.y)/2};
         // Update
         //----------------------------------------------------------------------------------
         ulxcoord = scene_graphics->PlayerPosition.x - (scene_graphics->SceneSize.x/2);
