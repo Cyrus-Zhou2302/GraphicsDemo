@@ -11,6 +11,8 @@
 #include <unistd.h>
 
 
+NUM_THREADS = 7
+
 void updateGraphics(char* cmd) {
 
 
@@ -28,42 +30,17 @@ int main()
 
     map_graphics_t* map_graphics = new_map_graphics();
 
-    npc_graphics_t* npc_graphics = new_npc
+    npc_graphics_t* npc_graphics = NewNPCGraphics();
 
-    //Switching between different windows
-    char nowdisplay = 0;
+    scene_graphics_t* scene_graphics = new_scene_graphics();
 
-
-    while (1)
-    {
-        int pid1 = fork();
-        if (pid1 < 0) {
-
-            printf("The first fork failed");
-
-        }
+    input_box_graphics_t* input_box_graphics = newInputboxGraphics();
 
 
-        int pid2 = fork();
+    pthread_t questpt, questpt, mappt,npcpt, scenept, input_boxpt, updatept;
 
-        
-        if (pid2< 0) {
-            printf("The second fork failed");
-            break;
-        }
-
-        if (pid2 == 0) {
-
-            
-
-
-
-        } else {
-
-
-        }
-
-    }
+    pthread_create(&graphicspt,NULL,runTaskTreeGraphics,)
+    
     return 0;
 
 }
