@@ -55,7 +55,7 @@ int draw_map_graphics(map_graphics_t* info)
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        playerPosition = info->PlayerPosit
+        Vector2 playerPosition = info->PlayerPosit
 
         // Draw
         //----------------------------------------------------------------------------------
