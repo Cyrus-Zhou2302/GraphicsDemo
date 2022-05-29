@@ -55,7 +55,7 @@ int main()
         if (IsKeyPressed(KEY_ESCAPE)) {
             break;
         }
-        
+
     }
 
     freeInputboxGraphics(input_box_graphics);
@@ -64,6 +64,7 @@ int main()
     free_quest_graphics(quest_graphics);
     free(input_bourx);
     free_map_graphics(map_graphics);
+    free(buffer);
     return 0;
 
 }
