@@ -7,6 +7,15 @@
 #include "scene_graphics.h"
 #include "npc_graphics.h"
 
+void updateGraphics(char* cmd) {
+
+
+
+}
+
+
+void 
+
 int main()
 {
     char* buffer = malloc(sizeof(char)*50);
@@ -21,13 +30,18 @@ int main()
 
     while (1)
     {
-        if (IsKeyPressed(KEY_ESCAPE)) {
+
+        int pid = fork()
+        
+        if (pid < 0) {
+            print("fork failed");
             break;
         }
 
+        if (pid == 0) {
 
-        if (IsKeyPressed(KEY_LEFT_CONTROL)||IsKeyPressed(KEY_RIGHT_CONTROL)) {
-            if (IsKeyPressed(KEY_))
+
+        } else {
 
 
         }
