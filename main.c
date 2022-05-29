@@ -16,11 +16,6 @@ struct input_box_args {
     char* buffa;
 };
     
-struct updateargs {
-
-
-}
-
 
 int main()
 {
@@ -49,12 +44,19 @@ int main()
     pthread_create((&input_boxpt),NULL, runTaskTreeGraphics,input_bourx);
     pthread_create((&updatept),NULL, runTaskTreeGraphics,NULL);
 
-    pthread_join(questpt);
-    pthread_join(mappt);
-    pthread_join(npcpt);
-    pthread_join(scenept);
-    pthread_join(input_boxpt);
-    pthread_join(updatept);
+    pthread_join(questpt,NULL);
+    pthread_join(mappt,NULL);
+    pthread_join(npcpt,NULL);
+    pthread_join(scenept,NULL);
+    pthread_join(input_boxpt,NULL);
+    pthread_join(updatept,NULL);
+
+    while (1) {
+        if (IsKeyPressed(KEY_ESCAPE)) {
+            break;
+        }
+        
+    }
 
     freeInputboxGraphics(input_box_graphics);
     free_scene_graphics(scene_graphics);
