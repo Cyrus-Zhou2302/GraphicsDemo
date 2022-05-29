@@ -6,6 +6,10 @@
 #include "quest_graphics.h"
 #include "scene_graphics.h"
 #include "npc_graphics.h"
+#include <pthread.h>
+#include <sys/types.h>
+#include <unistd.h>
+
 
 void updateGraphics(char* cmd) {
 
@@ -24,21 +28,34 @@ int main()
 
     map_graphics_t* map_graphics = new_map_graphics();
 
-    npc_graphics_t* npc_graphics = ne
+    npc_graphics_t* npc_graphics = new_npc
 
+    //Switching between different windows
+    char nowdisplay = 0;
 
 
     while (1)
     {
+        int pid1 = fork();
+        if (pid1 < 0) {
 
-        int pid = fork()
+            printf("The first fork failed");
+
+        }
+
+
+        int pid2 = fork();
+
         
-        if (pid < 0) {
-            print("fork failed");
+        if (pid2< 0) {
+            printf("The second fork failed");
             break;
         }
 
-        if (pid == 0) {
+        if (pid2 == 0) {
+
+            
+
 
 
         } else {
