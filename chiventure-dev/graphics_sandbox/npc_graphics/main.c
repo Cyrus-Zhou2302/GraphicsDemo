@@ -37,21 +37,12 @@ void runNPCGraphics(npc_graphics_t* npc_graphics) {
 
  // Initialization
     //--------------------------------------------------------------------------------------
+        const int screenWidth = npc_graphics->WindowSize.x;
+        const int screenHeight = npc_graphics->WindowSize.y;
 
+        InitWindow(screenWidth, screenHeight, current_npc->npc_name);
+        SetWindowPosition(npc_graphics->WindowPos.x, npc_graphics->WindowPos.y);
 
-    npc_info_t* current_npc = GetNPC(npc_graphics->current_npc,npc_graphics->npc_linkedlist);
-    
-
-    const int screenWidth = npc_graphics->WindowSize.x;
-    const int screenHeight = npc_graphics->WindowSize.y;
-
-    InitWindow(screenWidth, screenHeight, current_npc->npc_name);
-    SetWindowPosition(npc_graphics->WindowPos.x, npc_graphics->WindowPos.y);
-
-    Texture2D texture = LoadTexture((const char*)current_npc->head_action->action_image_path);
-    
-
-    float textureSize[2] = { (float)texture.width, (float)texture.height };
     
     // Set shader values (they can be changed later)
 
@@ -70,6 +61,13 @@ void runNPCGraphics(npc_graphics_t* npc_graphics) {
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
+
+        npc_info_t* current_npc = GetNPC(npc_graphics->current_npc,npc_graphics->npc_linkedlist);
+
+        Texture2D texture = LoadTexture((const char*)current_npc->head_action->action_image_path);
+    
+
+        float textureSize[2] = { (float)texture.width, (float)texture.height };
         framescounter ++;
 
         if (framescounter >= 60/frameSpeed) {

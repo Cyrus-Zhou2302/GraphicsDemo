@@ -21,6 +21,7 @@ typedef struct map_graphics {
     Vector2 WindowPos;
     Vector2 display_dimensions; //read this from gdl!
     Vector2 MaxCoordinates;
+    Vector2 PlayerPosition
 } map_graphics_t;
 
 /*

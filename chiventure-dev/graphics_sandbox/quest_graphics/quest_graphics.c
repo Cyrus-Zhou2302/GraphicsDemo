@@ -96,19 +96,7 @@ pos_in_tree_t* getTaskPos(task_tree_mockup_t* taskTree, char* wanted_task_name) 
 void runTaskTreeGraphics(quest_graphics_t* quest_graphics)
 {
     //--------------------------------------------------------------------------------------
-    const int screenWidth = quest_graphics->WindowSize.x;
-    const int screenHeight = quest_graphics->WindowSize.y;
-    InitWindow(screenWidth, screenHeight, "Quest");
-    SetWindowPosition(quest_graphics->WindowPos.x, quest_graphics->WindowPos.y);
-
-    double widthSegment = quest_graphics->SegmentDimension.x;
-    double heightSegment = quest_graphics->SegmentDimension.y;
-
-    //Currently Hardcoded, need to be flexible in the future as
-    // as we read in from the real quest struct;
-    int hp, level, xp;
-    int hp_requirement = 500;
-    int level_requirement = 7;
+    
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
@@ -116,6 +104,20 @@ void runTaskTreeGraphics(quest_graphics_t* quest_graphics)
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
+
+        const int screenWidth = quest_graphics->WindowSize.x;
+        const int screenHeight = quest_graphics->WindowSize.y;
+        InitWindow(screenWidth, screenHeight, "Quest");
+        SetWindowPosition(quest_graphics->WindowPos.x, quest_graphics->WindowPos.y);
+
+        double widthSegment = quest_graphics->SegmentDimension.x;
+        double heightSegment = quest_graphics->SegmentDimension.y;
+
+        //Currently Hardcoded, need to be flexible in the future as
+        // as we read in from the real quest struct;
+        int hp, level, xp;
+        int hp_requirement = 500;
+        int level_requirement = 7;
         // Update
         //----------------------------------------------------------------------------------
         //hp = getHealth();

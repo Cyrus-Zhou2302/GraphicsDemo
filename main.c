@@ -16,17 +16,11 @@ struct input_box_args {
     char* buffa;
 };
     
-
-NUM_THREADS = 7
-
-void updateGraphics(char* cmd) {
-
+struct updateargs {
 
 
 }
 
-
-void 
 
 int main()
 {
@@ -53,7 +47,7 @@ int main()
     pthread_create((&npcpt),NULL, runNPCGraphics,npc_graphics);
     pthread_create((&scenept),NULL, draw_scene_graphics,scene_graphics);
     pthread_create((&input_boxpt),NULL, runTaskTreeGraphics,input_bourx);
-    pthread_create((&updatept),NULL, runTaskTreeGraphics,);
+    pthread_create((&updatept),NULL, runTaskTreeGraphics,NULL);
 
     pthread_join(questpt);
     pthread_join(mappt);

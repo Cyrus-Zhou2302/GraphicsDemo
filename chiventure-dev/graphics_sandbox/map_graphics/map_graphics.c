@@ -43,7 +43,6 @@ int draw_map_graphics(map_graphics_t* info)
     const int screenHeight = (int)info->display_dimensions.y;
     int windowposx = (int)info->WindowPos.x;
     int windowposy = (int)info->WindowPos.y;
-    Vector2 playerPosition = (Vector2){screenWidth/2,screenHeight/2};
 
     InitWindow(screenWidth, screenHeight, info->title);
     SetWindowPosition(windowposx,windowposy);
@@ -56,30 +55,7 @@ int draw_map_graphics(map_graphics_t* info)
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
-        if (IsKeyDown(KEY_RIGHT)||IsKeyDown(KEY_D)) playerPosition.x += 1.0f;
-        else if (IsKeyDown(KEY_LEFT)||IsKeyDown(KEY_A)) playerPosition.x -= 1.0f;
-        else if (IsKeyDown(KEY_DOWN)||IsKeyDown(KEY_S)) playerPosition.y += 1.0f;
-        else if (IsKeyDown(KEY_UP)||IsKeyDown(KEY_W)) playerPosition.y -= 1.0f;
-
-        if (playerPosition.x < (screenWidth-MapTexture.width)/2) {
-            playerPosition.x = (screenWidth-MapTexture.width)/2;
-        }
-
-        if (playerPosition.x > screenWidth - (screenWidth-MapTexture.width)/2) {
-            playerPosition.x = screenWidth - (screenWidth-MapTexture.width)/2;
-        }
-        
-        if (playerPosition.y < (screenHeight-MapTexture.height)/2) {
-            playerPosition.y = (screenHeight-MapTexture.height)/2;
-        }
-
-        if (playerPosition.y > screenHeight - (screenHeight-MapTexture.height)/2) {
-            playerPosition.y = screenHeight - (screenHeight-MapTexture.height)/2;
-        }
+        playerPosition = info->PlayerPosit
 
         // Draw
         //----------------------------------------------------------------------------------
