@@ -40,7 +40,7 @@ void runNPCGraphics(npc_graphics_t* npc_graphics) {
         const int screenWidth = npc_graphics->WindowSize.x;
         const int screenHeight = npc_graphics->WindowSize.y;
 
-        InitWindow(screenWidth, screenHeight, current_npc->npc_name);
+        InitWindow(screenWidth, screenHeight, "NPC");
         SetWindowPosition(npc_graphics->WindowPos.x, npc_graphics->WindowPos.y);
 
     
@@ -49,14 +49,7 @@ void runNPCGraphics(npc_graphics_t* npc_graphics) {
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
-    int numframe = current_npc->head_action->frame_number;
-    Rectangle frameRec = { 0.0f, 0.0f, (float)texture.width/numframe, (float)texture.height };
-    int currentFrame = 0;
-
-    int framescounter = 0;
-    double frameSpeed = current_npc->head_action->switch_frequency;
-
-    const char* NPC_line = (GetLine(npc_graphics->current_line,current_npc))->line;
+    
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -65,7 +58,15 @@ void runNPCGraphics(npc_graphics_t* npc_graphics) {
         npc_info_t* current_npc = GetNPC(npc_graphics->current_npc,npc_graphics->npc_linkedlist);
 
         Texture2D texture = LoadTexture((const char*)current_npc->head_action->action_image_path);
-    
+
+        int numframe = current_npc->head_action->frame_number;
+        Rectangle frameRec = { 0.0f, 0.0f, (float)texture.width/numframe, (float)texture.height };
+        int currentFrame = 0;
+
+        int framescounter = 0;
+        double frameSpeed = current_npc->head_action->switch_frequency;
+
+        const char* NPC_line = (GetLine(npc_graphics->current_line,current_npc))->line;
 
         float textureSize[2] = { (float)texture.width, (float)texture.height };
         framescounter ++;
