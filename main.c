@@ -46,15 +46,21 @@ int main()
     input_bourx->buffa = buffer;
     input_bourx->grafix = input_box_graphics;
 
-    pthread_t questpt, questpt, mappt,npcpt, scenept, input_boxpt, updatept;
+    pthread_t questpt, mappt,npcpt, scenept, input_boxpt, updatept;
 
-    pthread_create((&graphicspt),NULL,runTaskTreeGraphics,);
     pthread_create((&questpt),NULL,runTaskTreeGraphics,quest_graphics);
     pthread_create((&mappt),NULL,draw_map_graphics,map_graphics);
     pthread_create((&npcpt),NULL, runNPCGraphics,npc_graphics);
     pthread_create((&scenept),NULL, draw_scene_graphics,scene_graphics);
     pthread_create((&input_boxpt),NULL, runTaskTreeGraphics,input_bourx);
     pthread_create((&updatept),NULL, runTaskTreeGraphics,);
+
+    pthread_join(questpt);
+    pthread_join(mappt);
+    pthread_join(npcpt);
+    pthread_join(scenept);
+    pthread_join(input_boxpt);
+    pthread_join(updatept);
 
     freeInputboxGraphics(input_box_graphics);
     free_scene_graphics(scene_graphics);
